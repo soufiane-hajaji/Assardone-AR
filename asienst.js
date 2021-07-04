@@ -14,21 +14,51 @@ $(document).ready(function(){$(".cmm-tabs").simplyTab({active:1,fx:"fade",showSp
 ;a.prototype ={constructor:a,init:function(){var c = this;c.timeout = setTimeout(function(){for (var d = 0;d < c.strings.length;++d){c.sequence[d] = d}
 if (c.shuffle){c.sequence = c.shuffleArray(c.sequence)}
 c.typewrite(c.strings[c.sequence[c.arrayPos]],c.strPos)}
-,c.startDelay)},build:function(){if (this.showCursor === true){this.cursor = b('<span class="typed-cursor">' + this.cursorChar + "</span>");this.el.after(this.cursor)}this.init()},typewrite:function(d,e){if (this.stop === true){return}
+,c.startDelay)}
+,build:function(){if (this.showCursor === true){this.cursor = b('<span class="typed-cursor">' + this.cursorChar + "</span>");this.el.after(this.cursor)}
+this.init()}
+,typewrite:function(d,e){if (this.stop === true){return}
 var f = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;var c = this;c.timeout = setTimeout(function(){var i = 0;var l = d.substr(e);if (l.charAt(0) === "^"){var k = 1;if (/^\^\d+/.test(l)){l = /\d+/.exec(l)[0];k += l.length;i = parseInt(l)}
 d = d.substring(0,e) + d.substring(e + k)}
 if (c.contentType === "html"){var h = d.substr(e).charAt(0);if (h === "<" || h === "&"){var g = "";var j = "";if (h === "<"){j = ">"}
-else{j = ";"}while (d.substr(e).charAt(0) !== j){g += d.substr(e).charAt(0);e++}
-e++;g += j}}c.timeout = setTimeout(function(){if (e === d.length){c.options.onStringTyped(c.arrayPos);if (c.arrayPos === c.strings.length - 1){c.options.callback();c.curLoop++;if (c.loop === false || c.curLoop === c.loopCount){return}}c.timeout = setTimeout(function(){c.backspace(d,e)},c.backDelay)}
+else{j = ";"}
+while (d.substr(e).charAt(0) !== j){g += d.substr(e).charAt(0);e++}
+e++;g += j}}
+c.timeout = setTimeout(function(){if (e === d.length){c.options.onStringTyped(c.arrayPos);if (c.arrayPos === c.strings.length - 1){c.options.callback();c.curLoop++;if (c.loop === false || c.curLoop === c.loopCount){return}}
+c.timeout = setTimeout(function(){c.backspace(d,e)}
+,c.backDelay)}
 else{if (e === 0){c.options.preStringTyped(c.arrayPos)}
 var m = d.substr(0,e + 1);if (c.attr){c.el.attr(c.attr,m)}
-else{if (c.isInput){c.el.val(m)}else{if (c.contentType === "html"){c.el.html(m)}else{c.el.text(m)}}}e++;c.typewrite(d,e)}},i)},f)},backspace:function(d,e){if (this.stop === true){return}
+else{if (c.isInput){c.el.val(m)}
+else{if (c.contentType === "html"){c.el.html(m)}
+else{c.el.text(m)}}}
+e++;c.typewrite(d,e)}}
+,i)}
+,f)}
+,backspace:function(d,e){if (this.stop === true){return}
 var f = Math.round(Math.random() * (100 - 30)) + this.backSpeed;var c = this;c.timeout = setTimeout(function(){if (c.contentType === "html"){if (d.substr(e).charAt(0) === ">"){var g = "";while (d.substr(e).charAt(0) !== "<"){g -= d.substr(e).charAt(0);e--}
-e--;g += "<"}}var h = d.substr(0,e);if (c.attr){c.el.attr(c.attr,h)}else{if (c.isInput){c.el.val(h)}else{if (c.contentType === "html"){c.el.html(h)}else{c.el.text(h)}}}if (e > c.stopNum){e--;c.backspace(d,e)}
-else{if (e <= c.stopNum){c.arrayPos++;if (c.arrayPos === c.strings.length){c.arrayPos = 0;if (c.shuffle){c.sequence = c.shuffleArray(c.sequence)}c.init()}
-else{c.typewrite(c.strings[c.sequence[c.arrayPos]],e)}}}},f)},shuffleArray:function(f){var c,e,d = f.length;if (d){while (--d){e = Math.floor(Math.random() * (d + 1));c = f[e];f[e] = f[d];f[d] = c}}return f}
-,reset:function(){var c = this;clearInterval(c.timeout);var d = this.el.attr("id");this.el.after('<span id="' + d + '"/>');this.el.remove();if (typeof this.cursor !== "undefined"){this.cursor.remove()}c.options.resetCallback()}};b.fn.typed = function(c){return this.each(function(){var f = b(this),e = f.data("typed"),d = typeof c == "object" && c;if (!e){f.data("typed",(e = new a(this,d)))}
-if (typeof c == "string"){e[c]()}})};b.fn.typed.defaults ={strings:["These are the default values...","You know what you should do?","Use your own!","Have a great day!"],typeSpeed:0,startDelay:0,backSpeed:0,shuffle:false,backDelay:500,loop:false,loopCount:false,showCursor:true,cursorChar:"|",attr:null,contentType:"html",callback:function(){},preStringTyped:function(){},onStringTyped:function(){},resetCallback:function(){}}}(window.jQuery);
+e--;g += "<"}}
+var h = d.substr(0,e);if (c.attr){c.el.attr(c.attr,h)}
+else{if (c.isInput){c.el.val(h)}
+else{if (c.contentType === "html"){c.el.html(h)}
+else{c.el.text(h)}}}
+if (e > c.stopNum){e--;c.backspace(d,e)}
+else{if (e <= c.stopNum){c.arrayPos++;if (c.arrayPos === c.strings.length){c.arrayPos = 0;if (c.shuffle){c.sequence = c.shuffleArray(c.sequence)}
+c.init()}
+else{c.typewrite(c.strings[c.sequence[c.arrayPos]],e)}}}}
+,f)}
+,shuffleArray:function(f){var c,e,d = f.length;if (d){while (--d){e = Math.floor(Math.random() * (d + 1));c = f[e];f[e] = f[d];f[d] = c}}
+return f}
+,reset:function(){var c = this;clearInterval(c.timeout);var d = this.el.attr("id");this.el.after('<span id="' + d + '"/>');this.el.remove();if (typeof this.cursor !== "undefined"){this.cursor.remove()}
+c.options.resetCallback()}}
+;b.fn.typed = function(c){return this.each(function(){var f = b(this),e = f.data("typed"),d = typeof c == "object" && c;if (!e){f.data("typed",(e = new a(this,d)))}
+if (typeof c == "string"){e[c]()}}
+)}
+;b.fn.typed.defaults ={strings:["These are the default values...","You know what you should do?","Use your own!","Have a great day!"],typeSpeed:0,startDelay:0,backSpeed:0,shuffle:false,backDelay:500,loop:false,loopCount:false,showCursor:true,cursorChar:"|",attr:null,contentType:"html",callback:function(){}
+,preStringTyped:function(){}
+,onStringTyped:function(){}
+,resetCallback:function(){}}}
+(window.jQuery);
 $('.post-thumb img').attr('src', function(i, src) {return src.replace( 's72-c', 's720-c' );});
 $('.post-thumb img').attr('src', function(i, src) {return src.replace( '/default.jpg', '/mqdefault.jpg' );});
 var idBlog= "5085293420862991854";var idPage= "8253016714795235499"; $.ajax({dataType: "json",url: "https://www.blogger.com/feeds/"+idBlog+"/pages/default/"+idPage+"?alt=json-in-script",method: "GET",dataType: "jsonp",success: function(e) {var o, t = $(e.entry.content.$t),n = t.find("li"),a = t.find("script"),l = [];$allow = !0, $("body").append(a);for (o = 0; o < n.length; o += 1) l.push($(n[o]).text());o = window.location.hostname.toLowerCase(), n = window.location.href.toLowerCase();var s;l.length;for (s = 0; s < l.length; s += 1) {if (-1 != o.indexOf(l[s])) {break}s == l.length - 1 && $('body *').remove() && $('body').addClass('RE').append("<style>body.RE {background: url(//1.bp.blogspot.com/-_zweP9Nctcg/YMyPUQISaPI/AAAAAAAABIw/um1E2Od_pSskxtgynqPMXq3vumcHoTkvQCLcBGAsYHQ/s0/Soufiane-Hajaji.png) no-repeat center #eee;background-position: center center;height: 98vh;}</style>")}}});
