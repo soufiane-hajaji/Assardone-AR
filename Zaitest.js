@@ -1,3 +1,4 @@
+<script type='text/javascript'>//<![CDATA[
 SettingsCookie={
 &#39;allow-mycookie&#39; : true,
 &#39;allow-googlecookie&#39; : false,
@@ -154,3 +155,4 @@ $(window).one('load',function() {
     }
 });
 });
+//]]></script>
