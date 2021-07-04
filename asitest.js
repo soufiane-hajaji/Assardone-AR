@@ -1,40 +1,3 @@
-<script type='text/javascript'>//<![CDATA[
-SettingsCookie={
-&#39;allow-mycookie&#39; : true,
-&#39;allow-googlecookie&#39; : false,
-&#39;allow-advanced&#39; : true,
-&#39;allow-types&#39; : &#39;[\x27preferences\x27, \x27analytics\x27, \x27marketing\x27]&#39;,
-&#39;id-googleanalytics&#39; : &#39;UA-000000000&#39;,
-&#39;title-text&#39; : &#39;الموافقة على ملفات الإرتباط والخصوصية&#1567;&#39;,
-&#39;message-text&#39; : &#39;نحن نستخدم ملفات تعريف الإرتباط لفهم كيفية إستخدامك لموقعنا ولتحسين تجربتك. وهذا يشمل تخصيص المحتوى والإعلانات....&#39;,
-&#39;btn-information-text&#39; : &#39;المزيد من المعلومات&#39;,
-&#39;btn-ccept-text&#39; : &#39;أعي ذلك&#39;,
-&#39;btn-advanced-text&#39; : &#39;تخصيص أكثر&#39;,
-&#39;types-text&#39; : &#39;حدد ملفات تعريف الإرتباط التي تريد قبولها&#39;,
-&#39;necessary-text&#39; : &#39;ضروري&#39;,
-&#39;necessary-desc-text&#39; : &#39;هذه ضرورية لموقع الويب للعمل بشكل صحيح.&#39;,
-&#39;preferences-text&#39; : &#39;تفضيلات&#39;,
-&#39;preferences-desc-text&#39; : &#39;هذه ملفات تعريف الإرتباط المرتبطة بتفضيلات موقعك على سبيل المثال تذكر إسم المستخدم الخاص بك ألوان الموقع...إلخ.&#39;,
-&#39;analytics-text&#39; : &#39;تحليلات&#39;,
-&#39;analytics-desc-text&#39; : &#39;ملفات تعريف الإرتباط المتعلقة بزيارات الموقع وأنواع المتصفح...إلخ.&#39;,
-&#39;marketing-text&#39; : &#39;تسويق&#39;,
-&#39;marketing-desc-text&#39; : &#39;ملفات تعريف الإرتباط المتعلقة بالتسويق على سبيل المثال النشرات الإخبارية وسائل التواصل الإجتماعي...إلخ&#39;,
-&#39;direction&#39; : &#39;rtl&#39;,
-&#39;link&#39; : &#39;https://policies.google.com/technologies/cookies&#39;,
-&#39;delay&#39; : 600,
-&#39;expires&#39; : 30,
-&#39;TTl-color&#39; : &#39;#FFB900&#39;,
-&#39;TXT-color&#39; : &#39;#444444&#39;,
-&#39;URL-color&#39; : &#39;#2900FF&#39;,
-&#39;Font&#39; : &#39;inherit&#39;,}
-function changeThumbSize(id,size){
-var blogGadget = document.getElementById(id);
-var replacement = blogGadget.innerHTML;
-blogGadget.innerHTML = replacement.replace(/w72-h72-p-k-no-nu/g,&quot;s&quot;+size+&quot;-c&quot;);
-var thumbnails = blogGadget.getElementsByTagName(&quot;img&quot;);
-for(var i=0;i&lt;thumbnails.length;i++){thumbnails[i].width = size;thumbnails[i].height = size;}}
-changeThumbSize(&quot;PopularPosts1&quot;,210); 
-//<![CDATA[
 $("#LinkList3").each(function(){var e="<ul id='nav'><li class='home-icon'><a href='/'><i class='fa fa-home'></i></a></li><li><li><ul id='sub-menu'>";$("#LinkList3 li").each(function(){var t=$(this).text(),n=t.substr(0,1),r=t.substr(1);"_"==n?(n=$(this).find("a").attr("href"),e+='<li><a href="'+n+'">'+r+"</a></li>"):(n=$(this).find("a").attr("href"),e+='</ul></li><li><a href="'+n+'">'+t+"</a><ul id='sub-menu'>")});e+="</ul></li></ul>";$(this).html(e);$("#LinkList3 ul").each(function(){var e=$(this);if(e.html().replace(/\s|&nbsp;/g,"").length==0)e.remove()});$("#LinkList3 li").each(function(){var e=$(this);if(e.html().replace(/\s|&nbsp;/g,"").length==0)e.remove()})});
 $('ul#sub-menu').parent('li').children('a').addClass('has-sub');
 window.selectnav=function(){"use strict";var e=function(e,t){function c(e){var t;if(!e)e=window.event;if(e.target)t=e.target;else if(e.srcElement)t=e.srcElement;if(t.nodeType===3)t=t.parentNode;if(t.value)window.location.href=t.value}function h(e){var t=e.nodeName.toLowerCase();return t==="ul"||t==="ol"}function p(e){for(var t=1;document.getElementById("selectnav"+t);t++);return e?"selectnav"+t:"selectnav"+(t-1)}function d(e){a++;var t=e.children.length,n="",l="",c=a-1;if(!t){return}if(c){while(c--){l+=o}l+=" "}for(var v=0;v<t;v++){var m=e.children[v].children[0];if(typeof m!=="undefined"){var g=m.innerText||m.textContent;var y="";if(r){y=m.className.search(r)!==-1||m.parentNode.className.search(r)!==-1?f:""}if(i&&!y){y=m.href===document.URL?f:""}n+='<option value="'+m.href+'" '+y+">"+l+g+"</option>";if(s){var b=e.children[v].children[1];if(b&&h(b)){n+=d(b)}}}}if(a===1&&u){n='<option value="">'+u+"</option>"+n}if(a===1){n='<select class="selectnav" id="'+p(true)+'">'+n+"</select>"}a--;return n}e=document.getElementById(e);if(!e){return}if(!h(e)){return}if(!("insertAdjacentHTML"in window.document.documentElement)){return}document.documentElement.className+=" js";var n=t||{},r=n.activeclass||"active",i=typeof n.autoselect==="boolean"?n.autoselect:true,s=typeof n.nested==="boolean"?n.nested:true,o=n.indent||"→",u=n.label||"- القائمة -",a=0,f=" noselected ";e.insertAdjacentHTML("afterend",d(e));var l=document.getElementById(p());if(l.addEventListener){l.addEventListener("change",c)}if(l.attachEvent){l.attachEvent("onchange",c)}return l};return function(t,n){e(t,n)}}();$(document).ready(function(){selectnav('nav1');selectnav('nav');});
@@ -155,4 +118,3 @@ $(window).one('load',function() {
     }
 });
 });
-//]]></script>
