@@ -2,7 +2,7 @@ var domain = window.location.hostname;
 var passedDomain = domain.split(".").slice(-2).join(".");
 
 
-var actualDomain = "bzoukasoft.com"; 
+var actualDomain = "bzoukasft.com"; 
 
 
 if (passedDomain !== actualDomain) {
