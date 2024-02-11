@@ -1,3 +1,4 @@
+<script>//<![CDATA[
 var domain = window.location.hostname;
 var passedDomain = domain.split(".").slice(-2).join(".");
 
@@ -14,3 +15,4 @@ if (passedDomain !== actualDomain) {
     document.body.appendChild(message);
 
 }
+//]]></script>
