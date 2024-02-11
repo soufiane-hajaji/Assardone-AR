@@ -1,4 +1,6 @@
-$(document).ready(function () {
+  <script>
+  /*<![CDATA[*/
+    $(document).ready(function () {
     $(function () {
         "use strict";
         $.ajax({
@@ -43,3 +45,5 @@ $(document).ready(function () {
         });
     });
 });
+  /*]]>*/
+  </script>
